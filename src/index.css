@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  --ink: #171827;
+  --paper: #F8F5F0;
+  --accent: #B8A7FF;
+  --cyan: #9BD9D2;
+  --magenta: #F2A7B8;
+  --mid: #25263A;
+  --muted: #77788A;
+  --surface: #ECEAF4;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(23, 24, 39, 0.45) 0,
+    rgba(23, 24, 39, 0.45) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(155, 217, 210, 0.1), transparent 25rem),
+    radial-gradient(circle at 88% 82%, rgba(242, 167, 184, 0.08), transparent 24rem);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #hero {
+    display: block !important;
+  }
+
+  .hero-copy {
+    min-height: 72vh;
+    border-right: 0 !important;
+    border-bottom: 1px solid #D4CEBC;
+  }
+
+  .hero-record-stage {
+    min-height: 560px !important;
+  }
+
+  .album-composition {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .about-section {
+    padding: 6rem 2rem !important;
+  }
+
+  .about-section > div {
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+
+  #experience {
+    padding: 6rem 2rem !important;
+  }
+
+  .experience-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  #skills {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body::before {
+    display: none;
+  }
+
+  nav {
+    padding: 0.9rem 1rem !important;
+  }
+
+  nav > div {
+    gap: 0.8rem !important;
+  }
+
+  nav > div > a {
+    display: none;
+  }
+
+  .hero-copy {
+    min-height: 78vh;
+    padding: 5.5rem 1.25rem 3.5rem !important;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.7rem, 14vw, 4.2rem) !important;
+  }
+
+  .hero-copy [data-sub] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-copy [data-actions] {
+    flex-wrap: wrap;
+  }
+
+  .hero-record-stage {
+    min-height: 430px !important;
+    padding: 0 !important;
+  }
+
+  .album-composition {
+    transform: scale(0.62);
+  }
+
+  .hero-tracklist {
+    bottom: 1.5rem !important;
+    right: 1.25rem !important;
+  }
+
+  #work,
+  #experience {
+    padding: 4.5rem 1.25rem !important;
+  }
+
+  .work-section > div:first-child {
+    align-items: flex-start !important;
+    gap: 1.5rem;
+    flex-direction: column;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .work-section a {
+    min-width: 0;
+  }
+
+  .project-row {
+    grid-template-columns: 2rem 1fr auto !important;
+    gap: 0.7rem !important;
+    padding: 1.3rem 0 !important;
+  }
+
+  .project-row > span:nth-of-type(3) {
+    display: none;
+  }
+
+  .project-row > span:nth-of-type(2) em {
+    display: block;
+    margin: 0.35rem 0 0 !important;
+  }
+
+  .about-section {
+    min-height: auto !important;
+    padding: 5rem 1.25rem !important;
+  }
+
+  .about-section h2 {
+    font-size: clamp(3rem, 16vw, 5rem) !important;
+  }
+
+  .about-section > div {
+    gap: 3rem !important;
+  }
+
+  #skills {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #skills .glitch-wrap {
+    font-size: clamp(2.5rem, 13vw, 4rem) !important;
+  }
+
+  #experience {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  #experience > div:first-child h2 {
+    font-size: clamp(2.5rem, 13vw, 4rem) !important;
+  }
+
+  .contact-section {
+    padding: 5rem 1.25rem !important;
+  }
+
+  .contact-grid {
+    gap: 2.5rem !important;
+  }
+
+  .contact-heading {
+    font-size: clamp(2.8rem, 14vw, 4.5rem) !important;
+  }
+
+  .vinyl {
+    width: min(300px, 76vw) !important;
+    height: min(300px, 76vw) !important;
+  }
+
+  .site-footer {
+    padding: 1.4rem 1.25rem !important;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}

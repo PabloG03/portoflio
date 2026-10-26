@@ -1,0 +1,30 @@
+*:root{
+  --header-color:#788db3;
+  --hero-color: #879fc0;
+  --main-text: #f5ebe0;
+
+}
+
+*{
+  font-family: sans-serif;
+  box-sizing: border-box;
+  color:black;
+  margin:0;
+  padding:0;
+}
+
+header{
+  background-color: aqua;
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position:fixed;
+}
+
+#nav-bar{
+  background-color: red;
+  margin-right: 15px;
+  display: flex;
+}
